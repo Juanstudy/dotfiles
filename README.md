@@ -70,6 +70,11 @@ Usa [GNU Stow](https://www.gnu.org/software/stow/) para crear symlinks desde `~/
 - El directorio `current/` de Omarchy (se genera al aplicar un theme)
 - Caches y archivos temporales
 
+## Créditos
+
+- [oldworld.nvim](https://github.com/dgox16/oldworld.nvim) — palette de colores base del theme `oldwordl`
+- [Gentle AI](https://github.com/Gentleman-Programming/gentle-ai) — flujo de trabajo y orquestación usados en este proyecto
+
 ## Licencia
 
 Hacé lo que quieras. Si te sirve, joya.
