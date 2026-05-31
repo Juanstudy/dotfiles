@@ -13,7 +13,7 @@ fi
 
 echo "==> Creando symlinks con stow..."
 cd "$REPO_DIR"
-stow -v -t "$HOME" home
+stow -v -t "$HOME" .
 
 echo "==> Configurando backgrounds..."
 mkdir -p "$HOME/.config/omarchy/backgrounds"

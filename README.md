@@ -50,16 +50,17 @@ git push
 Si agregaste un archivo nuevo (no reemplazaste uno existente):
 
 ```bash
-cd ~/dotfiles && stow --restow -t ~ home
+cd ~/dotfiles && stow --restow -t ~ .
 ```
 
 ## Detalle técnico
 
-Usa [GNU Stow](https://www.gnu.org/software/stow/) para crear symlinks desde `~/dotfiles/home/` hacia `$HOME/`. Esto significa:
+Usa [GNU Stow](https://www.gnu.org/software/stow/) para crear symlinks desde `~/dotfiles/` hacia `$HOME/`. Esto significa:
 
 - Editás donde siempre (`~/.config/hypr/...`)
-- Los archivos realmente viven en `~/dotfiles/home/.config/hypr/...`
+- Los archivos realmente viven en `~/dotfiles/.config/hypr/...`
 - Stow mantiene los symlinks sincronizados
+- Los archivos del repo (README, bootstrap.sh, .gitignore) se ignoran con `.stow-local-ignore`
 
 ### Qué NO está en el repo
 
