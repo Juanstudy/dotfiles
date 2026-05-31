@@ -23,6 +23,8 @@ Mis configuraciones de sistema para [Omarchy](https://omarchy.org/), una distrib
 
 Basado en **Kanagawa**. El theme custom se llama `oldwordl` y mantiene los mismos colores.
 
+![oldwordl preview](oldworld-preview.png)
+
 Los backgrounds se toman directamente de `~/Pictures/wallpapers/` — cualquier wallpaper que metas ahí, el ciclo de fondos lo agarra automáticamente.
 
 ## Rápido
