@@ -4,20 +4,20 @@ Mis configuraciones de sistema para [Omarchy](https://omarchy.org/), una distrib
 
 ## Stack
 
-| Componente | Herramienta |
-|-----------|-------------|
-| **WM** | Hyprland |
-| **Barra** | Waybar |
-| **Launcher** | Walker |
-| **Terminal** | Alacritty / Ghostty |
-| **Shell** | Fish |
-| **Editor** | Neovim (LazyVim) |
-| **Prompt** | Starship |
-| **Monitor** | Btop |
-| **Notificaciones** | Mako |
-| **OSD** | SwayOSD |
-| **Git TUI** | Lazygit |
-| **Multiplexor** | Tmux |
+| Componente         | Herramienta         |
+| ------------------ | ------------------- |
+| **WM**             | Hyprland            |
+| **Barra**          | Waybar              |
+| **Launcher**       | Walker              |
+| **Terminal**       | Alacritty / Ghostty |
+| **Shell**          | Fish                |
+| **Editor**         | Neovim (LazyVim)    |
+| **Prompt**         | Starship            |
+| **Monitor**        | Btop                |
+| **Notificaciones** | Mako                |
+| **OSD**            | SwayOSD             |
+| **Git TUI**        | Lazygit             |
+| **Multiplexor**    | Tmux                |
 
 ## Themes
 
@@ -32,7 +32,7 @@ Los backgrounds se toman directamente de `~/Pictures/wallpapers/` — cualquier 
 ```bash
 # En una máquina nueva
 git clone https://github.com/Juanstudy/dotfiles.git ~/dotfiles
-cd ~/dotfiles && ./bootstrap.sh
+cd ~/dotfiles
 omarchy theme set "Oldwordl"
 ```
 
