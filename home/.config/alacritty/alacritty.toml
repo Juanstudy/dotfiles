@@ -1,0 +1,119 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║                         GENTLEMAN DOTS - ALACRITTY                           ║
+# ║                          Optimized for Neovim                                ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+# ┌──────────────────────────────────────────────────────────────────────────────┐
+# │                                   FONT                                       │
+# └──────────────────────────────────────────────────────────────────────────────┘
+
+[font]
+size = 9
+
+# ┌──────────────────────────────────────────────────────────────────────────────┐
+# │                                  WINDOW                                      │
+# └──────────────────────────────────────────────────────────────────────────────┘
+
+[window]
+opacity = 0.955
+blur = true
+option_as_alt = "Both"
+
+
+# ┌──────────────────────────────────────────────────────────────────────────────┐
+# │                                  CURSOR                                      │
+# └──────────────────────────────────────────────────────────────────────────────┘
+
+[cursor]
+style = "Block"
+blink_interval = 500
+unfocused_hollow = true
+vi_mode_style = "Block"
+
+
+# ┌──────────────────────────────────────────────────────────────────────────────┐
+# │                                 TERMINAL                                     │
+# └──────────────────────────────────────────────────────────────────────────────┘
+
+[terminal]
+# For best Neovim compatibility, install alacritty terminfo:
+# sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
+
+[env]
+TERM = "xterm-256color"
+
+[terminal.shell]
+program = "/home/linuxbrew/.linuxbrew/bin/fish"
+args = ["-l"]
+
+[hints]
+enabled = []
+
+
+# ┌──────────────────────────────────────────────────────────────────────────────┐
+# │                           GENTLEMAN THEME                                    │
+# └──────────────────────────────────────────────────────────────────────────────┘
+#[colors.primary]
+#background = "#1e1e2e"
+#foreground = "#cdd6f4"
+
+#[colors.cursor]
+#text = "#1e1e2e"
+#cursor = "#f5e0dc"
+
+#[colors.selection]
+#text = "#1e1e2e"
+#background = "#f5e0dc"
+
+#[colors.normal]
+#black   = "#45475a"
+#red     = "#f38ba8"
+#green   = "#a6e3a1"
+#yellow  = "#f9e2af"
+#blue    = "#89b4fa"
+#magenta = "#f5c2e7"
+#cyan    = "#94e2d5"
+#white   = "#bac2de"
+#
+#[colors.bright]
+#black   = "#585b70"
+#red     = "#f38ba8"
+#green   = "#a6e3a1"
+#yellow  = "#f9e2af"
+#blue    = "#89b4fa"
+#magenta = "#f5c2e7"
+#cyan    = "#94e2d5"
+#white   = "#a6adc8"
+
+[colors.primary]
+background = "#161718"
+foreground = "#b7bcb9"
+
+[colors.cursor]
+text = "#161718"
+cursor = "#b7bcb9"
+
+[colors.selection]
+text = "#161718"
+background = "#1e1f22"
+
+[colors.normal]
+black   = "#2a2e33"
+red     = "#b74d50"
+green   = "#b3be5a"
+yellow  = "#e3b55e"
+blue    = "#6d90b0"
+magenta = "#a07eab"
+cyan    = "#7fbeb3"
+white   = "#b5b8b6"
+
+[colors.bright]
+black   = "#1d1e21"
+red     = "#8c2d32"
+green   = "#788331"
+yellow  = "#e5894f"
+blue    = "#4b6b88"
+magenta = "#6e4f79"
+cyan    = "#4d7b73"
+white   = "#5a6169"

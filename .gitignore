@@ -1,0 +1,19 @@
+# Wallpapers & backgrounds (symlinks a ~/Pictures/ , binarios pesados)
+home/.config/omarchy/backgrounds/
+home/.config/omarchy/themes/**/backgrounds/
+home/.config/omarchy/themes/**/wallpapers/
+
+# Current theme (generado, cambia en cada omarchy theme set)
+home/.config/omarchy/current/
+
+# Caches de cualquier app
+**/cache/
+**/*.cache/
+**/__pycache__/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
