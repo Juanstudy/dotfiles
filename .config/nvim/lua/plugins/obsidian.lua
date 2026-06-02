@@ -30,6 +30,9 @@ return {
     daily_notes = {
       enabled = false,
     },
+    note = {
+      template = nil,
+    },
     note_id_func = function(title)
       local date = os.date("%Y%m%d")
       if title and title ~= "" then
@@ -53,8 +56,6 @@ return {
     end,
     frontmatter = {
       func = function(note)
-        -- Note objects do NOT have a .subdir field.
-        -- Compute it from vault-relative path instead.
         local subdir = ""
         if note.path then
           local ok, rel = pcall(function()
@@ -65,14 +66,12 @@ return {
             subdir = parts[1] or ""
           end
         end
-
         local type_by_subdir = {
           inbox = "inbox",
           notes = "evergreen",
           maps = "map",
         }
         local note_type = type_by_subdir[subdir] or "inbox"
-
         local frontmatter = {
           id = note.id,
           title = note.title or "Untitled",
@@ -83,14 +82,12 @@ return {
           created = os.date("%Y-%m-%d"),
           updated = os.date("%Y-%m-%d"),
         }
-
         if note_type == "literature" or note_type == "source" then
           frontmatter.source = vim.NIL
         end
         if note_type == "evergreen" or note_type == "area" or note_type == "project" then
           frontmatter.related = vim.NIL
         end
-
         return frontmatter
       end,
     },
@@ -134,37 +131,66 @@ return {
       end,
       desc = "Inbox capture",
     },
-    -- New processed note in notes/
+    -- New processed note in notes/ (manual file write)
     {
       "<leader>on",
       function()
         local input = vim.fn.input("Note title: ")
         if input and input ~= "" then
-          -- Obsidian global is available after setup()
-          local Note = require("obsidian.note")
-          local note = Note.create({
-            id = input,
-            dir = Obsidian.dir / "notes",
-            should_write = true,
-          })
-          note:open({ sync = true })
+          local date = os.date("%Y%m%d")
+          local slug = input:lower():gsub("[^%w%s-]", ""):gsub("%s+", "-"):gsub("-+", "-"):gsub("^-", ""):gsub("-$", "")
+          if #slug > 40 then slug = slug:sub(1, 40):gsub("-+$", "") end
+          local id = date .. "-" .. slug
+          local dir = vim.fn.expand("~/Obsidian/Zettelkasten/notes")
+          vim.fn.mkdir(dir, "p")
+          local filepath = dir .. "/" .. id .. ".md"
+          local content = {
+            "---",
+            'id: "' .. id .. '"',
+            'title: "' .. input .. '"',
+            "type: evergreen",
+            "status: draft",
+            "tags: []",
+            "aliases: []",
+            "created: " .. os.date("%Y-%m-%d"),
+            "updated: " .. os.date("%Y-%m-%d"),
+            "---",
+            "",
+          }
+          vim.fn.writefile(content, filepath)
+          vim.cmd("edit " .. filepath)
         end
       end,
       desc = "New processed note",
     },
-    -- New map in maps/
+    -- New map in maps/ (manual file write)
     {
       "<leader>om",
       function()
         local input = vim.fn.input("Map title: ")
         if input and input ~= "" then
-          local Note = require("obsidian.note")
-          local note = Note.create({
-            id = input,
-            dir = Obsidian.dir / "maps",
-            should_write = true,
-          })
-          note:open({ sync = true })
+          local date = os.date("%Y%m%d")
+          local slug = input:lower():gsub("[^%w%s-]", ""):gsub("%s+", "-"):gsub("-+", "-"):gsub("^-", ""):gsub("-$", "")
+          if #slug > 40 then slug = slug:sub(1, 40):gsub("-+$", "") end
+          local id = date .. "-" .. slug
+          local dir = vim.fn.expand("~/Obsidian/Zettelkasten/maps")
+          vim.fn.mkdir(dir, "p")
+          local filepath = dir .. "/" .. id .. ".md"
+          local content = {
+            "---",
+            'id: "' .. id .. '"',
+            'title: "' .. input .. '"',
+            "type: map",
+            "status: active",
+            "tags: []",
+            "aliases: []",
+            "created: " .. os.date("%Y-%m-%d"),
+            "updated: " .. os.date("%Y-%m-%d"),
+            "---",
+            "",
+          }
+          vim.fn.writefile(content, filepath)
+          vim.cmd("edit " .. filepath)
         end
       end,
       desc = "New map note",
