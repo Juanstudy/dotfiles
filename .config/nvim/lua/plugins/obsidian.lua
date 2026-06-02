@@ -23,18 +23,13 @@ return {
     picker = {
       name = "snacks.pick",
     },
-    -- New notes default to inbox (quick captures)
     new_notes_location = "inbox",
     attachments = {
       folder = "files",
     },
-    -- Disable daily notes — not used in Zettelkasten
     daily_notes = {
       enabled = false,
     },
-    -- Custom ID generation: yyyymmdd-slug
-    ---@param title string|nil
-    ---@return string
     note_id_func = function(title)
       local date = os.date("%Y%m%d")
       if title and title ~= "" then
@@ -56,15 +51,27 @@ return {
       end
       return date .. "-" .. suffix
     end,
-    -- Moved from deprecated note_frontmatter_func to frontmatter.func
     frontmatter = {
       func = function(note)
+        -- Note objects do NOT have a .subdir field.
+        -- Compute it from vault-relative path instead.
+        local subdir = ""
+        if note.path then
+          local ok, rel = pcall(function()
+            return note.path:vault_relative_path()
+          end)
+          if ok and rel then
+            local parts = vim.split(tostring(rel), "/")
+            subdir = parts[1] or ""
+          end
+        end
+
         local type_by_subdir = {
           inbox = "inbox",
           notes = "evergreen",
           maps = "map",
         }
-        local note_type = type_by_subdir[note.subdir or ""] or "inbox"
+        local note_type = type_by_subdir[subdir] or "inbox"
 
         local frontmatter = {
           id = note.id,
@@ -114,7 +121,7 @@ return {
     },
   },
   keys = {
-    -- Quick capture to inbox (prompts for title)
+    -- Quick capture to inbox
     {
       "<leader>oi",
       function()
@@ -133,7 +140,14 @@ return {
       function()
         local input = vim.fn.input("Note title: ")
         if input and input ~= "" then
-          vim.cmd("Obsidian new notes/ " .. input)
+          -- Obsidian global is available after setup()
+          local Note = require("obsidian.note")
+          local note = Note.create({
+            id = input,
+            dir = Obsidian.dir / "notes",
+            should_write = true,
+          })
+          note:open({ sync = true })
         end
       end,
       desc = "New processed note",
@@ -144,7 +158,13 @@ return {
       function()
         local input = vim.fn.input("Map title: ")
         if input and input ~= "" then
-          vim.cmd("Obsidian new maps/ " .. input)
+          local Note = require("obsidian.note")
+          local note = Note.create({
+            id = input,
+            dir = Obsidian.dir / "maps",
+            should_write = true,
+          })
+          note:open({ sync = true })
         end
       end,
       desc = "New map note",
@@ -161,7 +181,5 @@ return {
     { "<leader>ot", "<cmd>Obsidian tags<cr>", desc = "Search tags" },
     -- Open link in split
     { "<leader>ov", "<cmd>Obsidian follow_link hsplit<cr>", desc = "Follow link (split)" },
-    -- Today (actually follows daily note link — disabled but mapped)
-    { "<leader>od", "<cmd>Obsidian today<cr>", desc = "Today (disabled)" },
   },
 }
