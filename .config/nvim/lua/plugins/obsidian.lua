@@ -77,9 +77,11 @@ return {
           title = note.title or "Untitled",
           type = note_type,
           status = note_type == "map" and "active" or "draft",
-          tags = {},
-          aliases = {},
-          created = os.date("%Y-%m-%d"),
+          -- Preserve existing tags/aliases from the note, don't overwrite with empty
+          tags = note.tags or {},
+          aliases = note.aliases or {},
+          -- Preserve created date from metadata, only set on first write
+          created = (note.metadata and note.metadata.created) or os.date("%Y-%m-%d"),
           updated = os.date("%Y-%m-%d"),
         }
         if note_type == "literature" or note_type == "source" then
@@ -159,6 +161,9 @@ return {
           }
           vim.fn.writefile(content, filepath)
           vim.cmd("edit " .. filepath)
+          -- Force obsidian.nvim to recognize and parse this buffer
+          vim.b.obsidian_buffer = true
+          vim.cmd("doautocmd BufReadPost")
         end
       end,
       desc = "New processed note",
@@ -191,6 +196,8 @@ return {
           }
           vim.fn.writefile(content, filepath)
           vim.cmd("edit " .. filepath)
+          vim.b.obsidian_buffer = true
+          vim.cmd("doautocmd BufReadPost")
         end
       end,
       desc = "New map note",
