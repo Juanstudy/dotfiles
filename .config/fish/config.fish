@@ -23,6 +23,7 @@ end
 # PATH
 set -x PATH \
     $HOME/.local/bin \
+    $HOME/.npm-global/bin \
     $HOME/.opencode/bin \
     $HOME/.volta/bin \
     $HOME/.bun/bin \
@@ -76,9 +77,6 @@ Enable vi modefish_vi_key_bindings
 
 set -gx EDITOR nvim
 set -gx VISUAL nvim
-
-#set api keys
-export CROFAI_API_KEY="nahcrof_xOSnvCyyhbesMioEebmP"
 
 ## alias
 alias ls='eza --color-scale-mode=fixed --icons=always --grid'
