@@ -1,0 +1,30 @@
+{
+	"subagents": {
+		"agentOverrides": {
+			"context-builder": {
+				"model": "opencode-go/kimi-k2.6"
+			},
+			"delegate": {
+				"model": "opencode-go/deepseek-v4-pro"
+			},
+			"oracle": {
+				"model": "opencode-go/kimi-k2.7-code"
+			},
+			"planner": {
+				"model": "opencode-go/glm-5"
+			},
+			"researcher": {
+				"model": "opencode-go/mimo-v2.5"
+			},
+			"reviewer": {
+				"model": "opencode-go/kimi-k2.6"
+			},
+			"scout": {
+				"model": "opencode-go/glm-5"
+			},
+			"worker": {
+				"model": "opencode-go/mimo-v2.5-pro"
+			}
+		}
+	}
+}

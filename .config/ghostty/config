@@ -16,8 +16,8 @@ font-size =  14
 # │                                  WINDOW                                      │
 # └──────────────────────────────────────────────────────────────────────────────┘
 
-background-opacity = 0.98
-background-blur-radius = 40
+background-opacity = 0.88
+background-blur-radius = 20
 
 window-decoration = none 
 window-padding-color = extend
