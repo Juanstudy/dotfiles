@@ -6,6 +6,9 @@ if status is-interactive
 
 end
 
+# Ollama - needed so llama-server finds its shared libraries
+set -gx OLLAMA_LOADER_LIBRARY_PATH /usr/local/lib/ollama
+
 # Linux
 #set -x PATH $HOME/.local/bin $HOME/.opencode/bin $HOME/.bun/bin /usr/local/bin $HOME/.config $HOME/.cargo/bin /usr/local/lib/* $PATH
 #set BREW_BIN /home/linuxbrew/.linuxbrew/bin/brew

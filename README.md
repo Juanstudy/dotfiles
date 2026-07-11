@@ -18,6 +18,7 @@ Mis configuraciones de sistema para [Omarchy](https://omarchy.org/), una distrib
 | **OSD**            | SwayOSD             |
 | **Git TUI**        | Lazygit             |
 | **Multiplexor**    | Tmux                |
+| **Agente AI**      | Herdr               |
 
 ## Themes
 
@@ -69,6 +70,10 @@ Usa [GNU Stow](https://www.gnu.org/software/stow/) para crear symlinks desde `~/
 - Wallpapers (están en `~/Pictures/wallpapers/`, enlazados via symlink)
 - El directorio `current/` de Omarchy (se genera al aplicar un theme)
 - Caches y archivos temporales
+
+### Herdr
+
+[Herdr](https://github.com/nicholasgasior/herdr) es un agente de IA que se acopla a paneles de Tmux. Su configuración vive en `~/.config/herdr/config.toml` y está sincronizada vía Stow. Los hooks de Tmux (`tmux/.config/tmux/scripts/hook-adapter.sh`) detectan `HERDR_ENV` para evitar conflictos cuando está activo.
 
 ## Créditos
 
