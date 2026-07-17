@@ -25,8 +25,8 @@ set -gx OLLAMA_LOADER_LIBRARY_PATH /usr/local/lib/ollama
 
 # PATH
 set -x PATH \
-    $HOME/.local/bin \
     $HOME/.npm-global/bin \
+    $HOME/.local/bin \
     $HOME/.opencode/bin \
     $HOME/.volta/bin \
     $HOME/.bun/bin \
@@ -45,9 +45,9 @@ if test -f $BREW_BIN
 end
 
 # Start tmux/zellij
-if not set -q TMUX
-    tmux
-end
+#if not set -q TMUX
+#    tmux
+#end
 
 # Initialize tools
 starship init fish | source
@@ -131,3 +131,10 @@ if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /home/juan-arch/.lmstudio/bin
+# End of LM Studio CLI section
+
+# Added for lmstudio folder models
+set -gx LOCAL_STUDIO_MODELS_DIR ~/.lmstudio/models
