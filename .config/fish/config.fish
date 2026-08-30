@@ -138,3 +138,12 @@ set -gx PATH $PATH /home/juan-arch/.lmstudio/bin
 
 # Added for lmstudio folder models
 set -gx LOCAL_STUDIO_MODELS_DIR ~/.lmstudio/models
+
+# Added by Antigravity CLI installer
+set -gx PATH "/home/juan-arch/.local/bin" $PATH
+
+# kimi-code
+fish_add_path -g "/home/juan-arch/.kimi-code/bin"
+
+# background agents opencode
+set -Ux OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS true
