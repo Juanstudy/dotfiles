@@ -22,6 +22,7 @@ accent = "#6FA0AF"
 
 agent_panel_sort = "spaces"
 show_agent_labels_on_pane_borders = false
+status_indicators = "symbols"
 [keys]
 # Match tmux/Zellij-style prefix muscle memory.
 prefix = "alt+d"
@@ -30,6 +31,10 @@ prefix = "alt+d"
 # Avoid Herdr's built-in prefix+shift+j/k pane-swap bindings.
 previous_agent = "prefix+ctrl+k"
 next_agent = "prefix+alt+j"
+
+# Move between spaces (workspaces).
+next_workspace = "prefix+ctrl+o"
+previous_workspace = "prefix+ctrl+i"
 
 # Jump straight to agent N (1..9) as listed in the sidebar.
 # and Shift+number did not reach Herdr reliably in the current terminal setup.
@@ -41,3 +46,4 @@ delivery = "system"
 [experimental]
 switch_ascii_input_source_in_prefix = false
 pane_history = true
+kitty_graphics = true
