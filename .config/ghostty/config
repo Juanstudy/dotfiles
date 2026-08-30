@@ -8,7 +8,7 @@
 # │                                   FONT                                       │
 # └──────────────────────────────────────────────────────────────────────────────┘
 
-font-family = IosevkaTerm NF
+font-family = Iosevka Nerd Font Mono
 font-size =  12
 
 
@@ -16,7 +16,7 @@ font-size =  12
 # │                                  WINDOW                                      │
 # └──────────────────────────────────────────────────────────────────────────────┘
 
-background-opacity = 0.88
+background-opacity = 0.75
 background-blur-radius = 20
 
 window-decoration = none 
