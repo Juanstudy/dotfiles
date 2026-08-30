@@ -19,6 +19,7 @@ Mis configuraciones de sistema para [Omarchy](https://omarchy.org/), una distrib
 | **Git TUI**        | Lazygit             |
 | **Multiplexor**    | Tmux                |
 | **Agente AI**      | Herdr               |
+| **Música**         | MPD + rmpc          |
 
 ## Themes
 
@@ -53,8 +54,14 @@ git push
 Si agregaste un archivo nuevo (no reemplazaste uno existente):
 
 ```bash
-cd ~/dotfiles && stow --restow -t ~ .
+# Los configs de ~/.config/ (mpd, rmpc, hypr, etc.)
+cd ~/dotfiles && stow --restow -t ~ .config
+
+# El paquete tmux va aparte (vive en tmux/.config/tmux)
+cd ~/dotfiles && stow -t ~ tmux
 ```
+
+> **Ojo:** NO uses `stow --restow -t ~ .` — stowea todo el repo y crearía links basura en tu home (`~/lazygit`, `~/oldworld-preview.png`, `~/tmux`, etc.). El paquete real es `.config`.
 
 ## Detalle técnico
 

@@ -2,4 +2,5 @@
 README\.md
 bootstrap\.sh
 \.stow-local-ignore
-.atl/
+.atl$
+.pi$

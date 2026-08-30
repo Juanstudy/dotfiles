@@ -11,6 +11,12 @@
 **/*.cache/
 **/__pycache__/
 
+# MPD runtime state (database/log/state se regeneran solos, no se versionan)
+.config/mpd/database
+.config/mpd/log
+.config/mpd/state
+.config/mpd/sticker.sql
+
 # Logs
 *.log
 
