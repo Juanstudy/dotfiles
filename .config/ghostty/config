@@ -70,4 +70,4 @@ custom-shader = shaders/cursor_smear_gentleman.glsl
 # │                          My  theme                                           │
 # └──────────────────────────────────────────────────────────────────────────────┘
 
-config-file = ~/.config/ghostty/themes/old_world.conf
+config-file = ~/.config/ghostty/themes/gentleman.conf
