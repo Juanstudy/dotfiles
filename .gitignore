@@ -14,6 +14,7 @@
 # MPD runtime state (database/log/state se regeneran solos, no se versionan)
 .config/mpd/database
 .config/mpd/log
+.config/mpd/pid
 .config/mpd/state
 .config/mpd/sticker.sql
 
@@ -25,3 +26,11 @@
 Thumbs.db
 # Local Pi runtime state
 .atl/
+
+# Agent artifacts (estado generado por agentes, no se versiona)
+.commandcode/
+.finalize-input.json
+
+# Caches y descargas locales
+.cache/
+Downloads/
