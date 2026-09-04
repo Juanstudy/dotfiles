@@ -1,31 +1,31 @@
 onboarding = false
 # herdr configuration managed by Gentleman.Dots.
-# This file is copied into ~/.config/herdr/config.toml during installation.
 
 [theme]
-# Use a built-in dark theme with neutral foregrounds so Herdr does not inherit
 # Ghostty bright-black selected rows or Kanagawa's warm/yellow label text.
-name = "terminal"
+name = "kanagawa"
 
 auto_switch = false
 [theme.custom]
 panel_bg = "#06080f"
 # Match Pi's Gentle theme, with a muted cyan for Herdr chrome.
-accent = "#6FA0AF"
+accent = "#8a8fa3"
 green = "#B7CC85"
 blue = "#6FA0AF"
 red = "#CB7C94"
 yellow = "#DEBA87"
 
 [ui]
-accent = "#6FA0AF"
+pane_gaps = false
+
+accent = "#8a8fa3"
 
 agent_panel_sort = "spaces"
-show_agent_labels_on_pane_borders = false
+show_agent_labels_on_pane_borders = true
 status_indicators = "symbols"
 [keys]
 # Match tmux/Zellij-style prefix muscle memory.
-prefix = "alt+d"
+prefix = "ctrl + d"
 
 # Move between agents in the sidebar.
 # Avoid Herdr's built-in prefix+shift+j/k pane-swap bindings.
