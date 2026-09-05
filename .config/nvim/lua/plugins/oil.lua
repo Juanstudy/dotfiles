@@ -36,8 +36,6 @@ return {
       ["gx"] = "actions.open_external",
       ["g."] = "actions.toggle_hidden",
       ["g\\"] = "actions.toggle_trash",
-      -- Quick quit
-      ["q"] = "actions.close",
     },
 
     use_default_keymaps = false,
